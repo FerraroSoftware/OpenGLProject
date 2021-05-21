@@ -120,3 +120,70 @@ Vertex Specification: Setting up the data of the vertices for the primitives we 
 	- vertex array object (VAO): what data a vertex has
 	- vertex buffer object (VBO): vertex data itself
 	- Shader programs are created with at least a vertex shader and then activated before use
+
+
+
+Vectors, Matrcies and Uniform Variables
+
+Vectors:
+- Quanity with magnitude and direection -> how far something is and in what direction
+- Normally used to represent a dircetion or somethings position
+- Operations-> addition, subtraction, Multiplication by sclar (expanding magnitude instead of direction), dot product
+	- |V| is the magnitude or lenght
+	- theta os the angle between v1 and v2, used for lighting, (v1*v2) / |v1|*|v2| = cos(theta)
+- Vectors Magnitude:
+	- Vectors form right angle triangles
+	- calc magnitude with variation of the pythagorean theorm
+	- in 3D, |V| = sqrt(vx^2 + vy^2 + vz^2)
+	v = [1,2,2]
+	|V| = sqrt (1^2 + 2^2 +2^2)
+	    = sqrt ( 1 + 4 + 4 ) = sqrt (9)
+		= 3 
+	- dot product used to check for angles 
+- Unit Vector
+	- To know a direction and how to advance in that direction
+	u = v/|v|, but with only one unit of magnitude
+
+
+
+Matricies:
+	- groups of values in ixj grid
+	2x3 matrix
+	i = rows
+	j = columns
+	used to handle model transforms (translation, rotation scaling), projections and views
+
+	- addition and sub, dimensions must match
+	- multiplication
+	- vectors usally on right of matrix during multiplications
+
+- Matrix Transforms
+	- used for translation, rotation scaling : (transforms)
+	- translation 'moves' the vector, changing the position of something
+	- scaling 'resizes' vector, used to increase a distance by a factor or make an object larger
+	- rotation: rotatoes a vector around its origin 
+		- three different types X,Y,Z rotation
+	- we can combine these transforms, then apply it to the vector
+		- order matters
+		- transformation * scale = product
+			- scale is actually happening first 
+
+- Will be using GLM: lib for handling common math operations used with openGL
+
+Uniform variables
+	- type of variable in shader 
+	- values global to the shader that arent associated with a particular vertex 
+	- each has location id in the shader
+	- need to find location
+	- bind a value to that location
+	- set correct shader program to be in use
+
+Summary
+- Vectors are directions and position in space
+- Matrices are 2D arrays of data used for calculating transforms and other functions
+- Vectors are a type of matrix and can have these functions applied to them
+- the order of transform operation matters
+- last matrix operation applied happens first
+- GLM is used to handle matrix calculations
+- Uniform variables pass global data to shaders
+- Need to obtain a unfiroms location then bind data to it
